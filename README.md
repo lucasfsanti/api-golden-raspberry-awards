@@ -63,6 +63,6 @@ curl 'localhost:8080/golden-raspberry-awards/worst-movie/producers/awards-range'
             "previousWin": 2000,
             "followingWin": 2099
         }
-]
+    ]
 }
 ```
