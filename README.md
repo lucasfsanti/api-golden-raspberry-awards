@@ -15,25 +15,25 @@ Este projeto requer Java 8 e Maven 4 instalados.
 git clone https://github.com/lucasfsanti/api-golden-raspberry-awards
 ```
 
-### Rodar o projeto:
+### Rodando o projeto:
 ```
 mvn spring-boot:run
 ```
 
-### Rodar testes de integração:
+### Rodando testes de integração:
 ```
 mvn -Dtest=ProducerControllerTest test
 ```
 
-## Endpoints da API:
-**Request**
+## Endpoints da API
+### Request:
 
 `GET /golden-raspberry-awards/worst-movie/producers/awards-range`
 ```
 curl 'localhost:8080/golden-raspberry-awards/worst-movie/producers/awards-range'
 ```
 
-**Resposta**
+### Resposta:
 ```javascript
 {
     "min": [
