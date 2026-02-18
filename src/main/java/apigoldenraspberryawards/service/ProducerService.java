@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import apigoldenraspberryawards.dto.AwardsRangeDTO;
 import apigoldenraspberryawards.dto.ResponseDTO;
 import apigoldenraspberryawards.repository.MovieRepository;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.TreeMap;
@@ -16,13 +18,15 @@ public class ProducerService {
     private MovieRepository repository;
 
     public ResponseDTO getRanges() {
-        List<AwardsRangeDTO> ranges = repository.findRanges();
+        List<AwardsRangeDTO> ranges = repository.findRangeBetweenAwards();
 
         TreeMap<Integer, List<AwardsRangeDTO>> map = new TreeMap<>();
 
         ranges.forEach(r -> {
             if (map.containsKey(r.getInterval())) {
-                map.get(r.getInterval()).add(r);
+                ArrayList<AwardsRangeDTO> newList = new ArrayList<>(map.get(r.getInterval()));
+                newList.add(r);
+                map.put(r.getInterval(), newList);
             } else {
                 map.put(r.getInterval(), Arrays.asList(r));
             }
